@@ -24,9 +24,19 @@ ul.sidebar a:hover {
   clear: left;
   margin-left: 10px;
 }
+.credit {
+  float: right;
+}
+.credit a {
+  text-decoration: underline;
+}
 
 .boxesr {
   min-height: 400px;
+}
+.card-body a {
+  color: white;
+  text-decoration: underline;
 }
 /* Fencing Styles Heading*/
 h1 {
