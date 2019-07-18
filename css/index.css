@@ -1,0 +1,12 @@
+/* Moves carousel caption to the bottom of the carousel and styles credits and links*/
+.carousel-caption {
+  position: relative;
+  background-color: #17a2b8;
+  top: 0;
+  left: 0;
+  color: white;
+}
+.carousel-caption a {
+  text-decoration: underline;
+  font-style: italic;
+}

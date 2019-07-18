@@ -1,0 +1,34 @@
+/*LEFT SIDE NAV CSS*/
+/*side bar background color-teal*/
+.sidebar {
+  background-color: #17a2b8;
+  position: fixed;
+}
+
+/*side bar links default to white when inactive or visited*/
+ul.sidebar a:link,
+a:visited {
+  color: white;
+}
+/*side bar links underlined at hover*/
+ul.sidebar a:hover {
+  text-decoration: underline;
+}
+
+/*END LEFT SIDE NAV CSS*/
+/*FORMATTING CARDS*/
+/*DEFINING CARD IMG WIDTH AND FLOATS*/
+.cardr {
+  max-width: 400px;
+  float: right;
+  clear: left;
+  margin-left: 10px;
+}
+
+.boxesr {
+  min-height: 400px;
+}
+/* Fencing Styles Heading*/
+h1 {
+  color: #17a2b8;
+}

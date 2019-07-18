@@ -10,7 +10,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <!-- linking custom CSS -->
+  <!-- linking custom site CSS -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+  <!-- linking custom page CSS -->
   <link rel="stylesheet" type="text/css" href="css/account.css">
 
   <!--Font Awesome link-->
@@ -26,86 +29,82 @@
 <body>
 
   <!-- Nav bar -->
-  <!--Brand Logo **ADD PHOTO WHEN FOUND***-->
-  <nav class="navbar navbar-dark bg-dark">
+  <!--Brand Logo-->
+  <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
     <a class="navbar-brand" href="index.html">
-      <img src="img/large_mask_logo.png" height="40" alt="fencing mask logo">
       <span class="align-middle font-weight-bold text-info cctfc">CCTFC</span>
     </a>
+
     <!--Right side nav items-->
-    <ul class="nav">
+    <ul class="nav topnav">
       <li class="nav-item">
-        <a class="nav-link invisible" href="account.html">My Account</a>
+        <a class="nav-link inactive" href="about.html">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="login.html">Login</a>
+        <a class="nav-link inactive" href="login.html">Logout</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="about.html">About</a>
-      </li>
-      <li>
-        <a class="btn btn-info" href="register.html" role="button">Become a Member!</a>
+        <a class="nav-link active" href="#">My Account</a>
       </li>
     </ul>
   </nav>
 
-  <!-- Header -->
+  <!-- Header (removed logo header that was on other pages for better formatting, and assuming if they're members, they know the club)-->
 
-  <header class="row">
-    <div class="col-12">
-      <img src="img/long_logo.png" class="mx-auto d-block" height="120" alt="CCTFC Logo">
+  <div class="jumbotron jumbotron-fluid jtronimg">
+    <div class="container float-left jtrontxt">
+      <h1 class="text-white">My Account</h1>
+      <p class="lead text-info">Keep track of your meets and scores and see how your practice has paid off!</p>
     </div>
-  </header>
+  </div>
 
 
   <!-- BODY CONTENT GOES HERE -->
   <!-- TABLE -->
 
   <main class="container">
-    <form action="#">
-      <table class="table table-bordered table-hover">
+    <form action="#" method="GET">
+      <table class="table table-bordered table-hover text-center align-middle accform">
         <thead>
-          <tr>
-            <th scope="col">&nbsp;</th>
-            <th scope="col">Date</th>
-            <th scope="col">Meet</th>
-            <th scope="col">Opponent</th>
-            <th scope="col">Win/Loss</th>
-            <th scope="col">Your Score</th>
-            <th scope="col">Opponent Score</th>
+          <tr class="thead-dark">
+            <th scope="col" class="align-middle"></th>
+            <th scope="col" class="align-middle">Date</th>
+            <th scope="col" class="align-middle">Meet</th>
+            <th scope="col" class="align-middle">Opponent</th>
+            <th scope="col" class="align-middle">Win/Loss</th>
+            <th scope="col" class="align-middle">Your Score</th>
+            <th scope="col" class="align-middle">Opponent Score</th>
           </tr>
         </thead>
         <tbody>
-
-          <tr>
-            <!--SUBMIT BUTTON-->
-            <td scope="row" class="align-middle">
+          <tr class="table-info">
+            <td class="align-middle">
               <div class="form-group-row">
-                <button type="submit" class="btn btn-info">Add New Entry</button>
+                <!--SUBMIT BUTTON would use javascript to add new row to table with user inputs-->
+                <button type="submit" class="btn btn-info">
+                  <i class="far fa-plus-square addbt"></i> <span class="btntext">Add New Entry</span>
+                </button>
               </div>
             </td>
-            <td scope="row" class="align-middle">
+            <td class="align-middle">
               <div class="form-group-row">
-                <label for="addDate" class="form-label"><i class="far fa-plus-square"></i> Date</label>
-                <input type="date" class="form-control border-info" id="addDate" value="">
+                <!--Receiving validation warning for date input type, would use javascript for polyfill for unsupported browsers-->
+                <input type="date" class="form-control border-info" id="addDate">
               </div>
             </td>
-            <td scope="row" class="align-middle">
+            <td class="align-middle">
               <div class="form-group-row">
-                <label for="addMeet" class="form-label"><i class="far fa-plus-square"></i> Meet</label>
-                <input type="text" class="form-control border-info" id="addMeet" value="" placeholder="meet location">
+                <input type="text" class="form-control border-info" id="addMeet" placeholder="Meet Location">
               </div>
             </td>
-            <td scope="row" class="align-middle">
+            <td class="align-middle">
               <div class="form-group-row">
-                <label for="addOpponent" class="form-label"><i class="far fa-plus-square"></i> Opponent</label>
-                <input type="text" class="form-control border-info" id="addOpponent" value=""
+                <input type="text" class="form-control border-info" id="addOpponent"
                   placeholder="Last name, First name">
               </div>
             </td>
-            <td scope="row" class="align-middle">
-              <div class="form-group">
-                <label for="addWinLoss"><i class="far fa-plus-square"></i> Win/Loss</label>
+            <td class="align-middle form-label">
+              <div class="form-group-row colwid">
                 <select class="form-control border-info" id="addWinLoss">
                   <option selected>Select...</option>
                   <option value="W">Win</option>
@@ -113,86 +112,116 @@
                 </select>
               </div>
             </td>
-            <td scope="row" class="align-middle">
-              <div class="form-group-row">
-                <label for="addYourScore" class="form-label"><i class="far fa-plus-square"></i> Score</label>
-                <input type="number" min=0 max=15 class="form-control border-info" id="addYourScore" value="">
+            <td class="align-middle">
+              <div class="form-group-row colwid">
+                <input type="number" min=0 max=15 class="form-control border-info" id="addYourScore">
               </div>
             </td>
-            <td scope="row" class="align-middle">
-              <div class="form-group-row">
-                <label for="addOpponentScore" class="form-label"><i class="far fa-plus-square"></i> 
-                  Score</label>
-                <input type="number" min=0 max=15 class="form-control border-info" id="addOpponentScore" value="">
+            <td class="align-middle">
+              <div class="form-group-row colwid">
+                <input type="number" min=0 max=15 class="form-control border-info" id="addOpponentScore">
               </div>
             </td>
-
-
-          </tr>
-
-
-          <tr>
-
-            <td>1</td>
-            <td>04/12/2019</td>
-            <td>Norwich Free Academy</td>
-            <td>Fortin, Stephanie</td>
-            <td>Win</td>
-            <td>15</td>
-            <td>8</td>
-
-
           </tr>
           <tr>
-            <td>2</td>
-            <td>04/20/2019</td>
-            <td>East Lyme</td>
-            <td>Smith, Jane</td>
-            <td>Win</td>
-            <td>15</td>
-            <td>13</td>
-
+            <td>
+              <!--EDIT BUTTONS would open up fields for edit-->
+              <button type="submit" class="btn btn-outline-info mx-auto d-inline editbuts">
+                <i class="far fa-edit"></i>
+                <span class="btntext">Edit</span>
+              </button>
+              <!--DELETE BUTTONS would delete the row of data-->
+              <button type="submit" class="btn btn-outline-info mx-auto d-inline editbuts">
+                <i class="far fa-trash-alt"></i>
+                <span class="btntext">Delete</span>
+              </button>
+            </td>
+            <td class="align-middle">04/12/2019</td>
+            <td class="align-middle">Norwich Free Academy</td>
+            <td class="align-middle">Antonio, Courtney</td>
+            <td class="align-middle">Win</td>
+            <td class="align-middle">15</td>
+            <td class="align-middle">8</td>
           </tr>
           <tr>
-            <td>3</td>
-            <td>05/2/2019</td>
-            <td>Silver City</td>
-            <td>Long, Vanessa</td>
-            <td>Loss</td>
-            <td>12</td>
-            <td>15</td>
+            <td class="align-middle">
+              <button type="submit" class="btn btn-outline-info mx-auto d-inline editbuts">
+                <i class="far fa-edit"></i>
+                <span class="btntext">Edit</span>
+              </button>
+              <button type="submit" class="btn btn-outline-info mx-auto d-inline editbuts">
+                <i class="far fa-trash-alt"></i>
+                <span class="btntext">Delete</span>
+              </button>
+            </td>
+            <td class="align-middle">04/20/2019</td>
+            <td class="align-middle">East Lyme</td>
+            <td class="align-middle">Smith, Jane</td>
+            <td class="align-middle">Win</td>
+            <td class="align-middle">15</td>
+            <td class="align-middle">13</td>
           </tr>
           <tr>
-            <td>4</td>
-            <td>05/2/2019</td>
-            <td>Silver City</td>
-            <td>Springer, Lindsay</td>
-            <td>Win</td>
-            <td>15</td>
-            <td>10</td>
-
+            <td class="align-middle">
+              <button type="submit" class="btn btn-outline-info mx-auto d-inline editbuts">
+                <i class="far fa-edit"></i>
+                <span class="btntext">Edit</span>
+              </button>
+              <button type="submit" class="btn btn-outline-info mx-auto d-inline editbuts">
+                <i class="far fa-trash-alt"></i>
+                <span class="btntext">Delete</span>
+              </button>
+            </td>
+            <td class="align-middle">05/2/2019</td>
+            <td class="align-middle">Silver City</td>
+            <td class="align-middle">Long, Vanessa</td>
+            <td class="align-middle">Loss</td>
+            <td class="align-middle">12</td>
+            <td class="align-middle">15</td>
           </tr>
           <tr>
-            <td>5</td>
-            <td>05/15/2019</td>
-            <td>ICONN</td>
-            <td>Reber, Sarah</td>
-            <td>Loss</td>
-            <td>7</td>
-            <td>15</td>
-
+            <td class="align-middle">
+              <button type="submit" class="btn btn-outline-info mx-auto d-inline editbuts">
+                <i class="far fa-edit"></i>
+                <span class="btntext">Edit</span>
+              </button>
+              <button type="submit" class="btn btn-outline-info mx-auto d-inline editbuts">
+                <i class="far fa-trash-alt"></i>
+                <span class="btntext">Delete</span>
+              </button>
+            </td>
+            <td class="align-middle">05/2/2019</td>
+            <td class="align-middle">Silver City</td>
+            <td class="align-middle">Springer, Lindsay</td>
+            <td class="align-middle">Win</td>
+            <td class="align-middle">15</td>
+            <td class="align-middle">10</td>
+          </tr>
+          <tr>
+            <td class="align-middle">
+              <button type="submit" class="btn btn-outline-info mx-auto d-inline editbuts">
+                <i class="far fa-edit"></i>
+                <span class="btntext">Edit</span>
+              </button>
+              <button type="submit" class="btn btn-outline-info mx-auto d-inline editbuts">
+                <i class="far fa-trash-alt"></i>
+                <span class="btntext">Delete</span>
+              </button>
+            </td>
+            <td class="align-middle">05/15/2019</td>
+            <td class="align-middle">ICONN</td>
+            <td class="align-middle">Reber, Sarah</td>
+            <td class="align-middle">Loss</td>
+            <td class="align-middle">7</td>
+            <td class="align-middle">15</td>
         </tbody>
       </table>
     </form>
   </main>
 
 
-
-
-
-
   <!-- FOOTER -->
-  <footer class="row fixed-bottom">
+  <footer class="row">
     <div class="container col-12">
       <hr>
       <p class="float-right mr-4"><img src="img/fencing_mask_icon.png" alt="fencing mask"> Cori Trudeau - HartCode

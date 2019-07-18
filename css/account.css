@@ -1,15 +1,125 @@
-.form-control:focus {
-    border-color:#17a2b8;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(23, 162, 184, 0.6);
+/*TABLE BORDER STYLING*/
+
+table.table-bordered {
+  border: 1px #17a2b8;
+  margin-top: 20px;
+}
+table.table-bordered th,
+table.table-bordered td {
+  border: 1px solid #17a2b8;
 }
 
-table.table-bordered{
-    border:1px #17a2b8;
-    margin-top:20px;
-  }
-table.table-bordered > thead > tr > th{
-    border:1px solid #17a2b8;
+/*sets last 3 columns to equal width*/
+
+/*adjusted size of jumbotron for img dimensions*/
+.jtronimg {
+  background-image: url("../img/fencing_lights.png");
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 329px;
 }
-table.table-bordered > tbody > tr > td{
-    border:1px solid #17a2b8;
+/*styling of buttons*/
+.addbt {
+  color: white;
+}
+.editbuts {
+  text-align: center;
+  width: 48%;
+}
+.editbuts:hover i {
+  color: white;
+}
+
+/*styling of table text*/
+.accform th,
+td {
+  text-align: center;
+}
+
+/* Account Page (user interaction) media queries */
+
+/* Extra small devices (phones, 600px and down) */
+@media screen and (max-width: 600px) {
+
+  .btntext {
+    display: none;
+  }
+  .jtrontxt {
+    width: 100%;
+  }
+  .jtrontxt h1 {
+    font-size: 20px;
+  }
+  .jtrontxt p {
+    font-size: 15px;
+  }
+  .jtronimg {
+    background-image: none;
+    height: 120px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+  .btntext {
+    display: none;
+  }
+  .jtronimg {
+    background-image: url("../img/fencing_lights_768.png");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 187px;
+  }
+  .jtrontxt {
+    width: 25%;
+  }
+  .jtrontxt h1 {
+    font-size: 20px;
+  }
+  .jtrontxt p {
+    font-size: 13px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+  .jtronimg {
+    background-image: url("../img/fencing_lights_992.png");
+    background-color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 240px;
+  }
+  .jtrontxt h1 {
+    font-size: 20px;
+  }
+  .jtrontxt p {
+    font-size: 15px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .jtrontxt h1 {
+    font-size: 30px;
+  }
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+  .jtrontxt h1 {
+    font-size: 40px;
+  }
+  .jtrontxt p {
+    font-size: 20px;
+  }
+  .btntext {
+    display: initial;
+  }
 }

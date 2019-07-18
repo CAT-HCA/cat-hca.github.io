@@ -1,0 +1,4 @@
+/*Removing bullets from every other entry to double space*/
+.blank {
+    list-style-type: none;
+}
