@@ -1,12 +1,12 @@
-/* Moves carousel caption to the bottom of the carousel and styles credits and links*/
-.carousel-caption {
-  position: relative;
-  background-color: #17a2b8;
-  top: 0;
-  left: 0;
-  color: white;
+
+/*Index page jumbotron*/
+.jumbotron {
+    margin-bottom: 0px;
+    background-image: url(../images/jumbotronimg.jpg);
+    background-position: center; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-shadow: 2px 2px 2px black;
 }
-.carousel-caption a {
-  text-decoration: underline;
-  font-style: italic;
-}
+
+
