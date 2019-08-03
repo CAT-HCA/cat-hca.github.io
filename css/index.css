@@ -3,6 +3,7 @@
 .jumbotron {
     margin-bottom: 0px;
     background-image: url(../images/jumbotronimg.jpg);
+    background-color:#17a2b8;
     background-position: center; 
     background-size: cover;
     background-repeat: no-repeat;

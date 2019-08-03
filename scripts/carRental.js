@@ -36,8 +36,13 @@ window.onload = function ()
         let returnDate = getReturnDate(pickupDate, numDays);
         let totalCost = carCost + optionsCost + ageCost;
 
-        hiddendiv.style.display = 'block';
-        
+        //will show the results portion only if a price is calculated (not on click, in case of alert)
+        if (carCost > 0){
+        hiddendiv.style.display = "initial";
+        }
+        else{
+            hiddendiv.style.display = "none";
+        }
 
         //Display results
         document.getElementById("carRentalCostOutput").innerHTML = carCost.toFixed(2);

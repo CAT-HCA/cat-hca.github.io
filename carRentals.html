@@ -37,23 +37,23 @@
     </nav>
     <!--END NAV BAR-->
 
-    <main class="container row ml-2">
-        <form class="col-md-8 mx-auto">
-            <div class="container">
-                <h1 class="display-4 text-info row">ACME Car Rental</h1>
-                <p class="row">Car rentals available from our sister-company, ACME Car Rental.</p>
-            </div>
+    <main class="row justify-content-between m-2">
+        <div class="col-12">
+            <h1 class="display-4 text-info text-center">ACME Car Rental</h1>
+            <p class="text-center">Car rentals available from our sister-company, ACME Car Rental.</p>
+        </div>
+        <form class="container col-lg-7 col-xs-8 mx-auto" action="#" method="GET">
             <fieldset class="border border-info p-3 rounded">
                 <legend class="font-weight-light text-white w-50 border border-info rounded">Rental Dates
                 </legend>
                 <div class="form-group">
                     <label for="inputPickupDate">Pickup date: </label>
                     <!--Validation error for input type = "date" due to unavailable in some browsers-->
-                    <input type="date" class="form-control" id="inputPickupDate" name="inputPickupDate">
+                    <input type="date" class="form-control" id="inputPickupDate" name="inputPickupDate" required>
                 </div>
                 <div class="form-group">
                     <label for="inputNumDays">Number of days: </label>
-                    <input type="number" min="0" class="form-control" id="inputNumDays" name="inputNumDays">
+                    <input type="number" min="0" class="form-control" id="inputNumDays" name="inputNumDays" required>
                 </div>
             </fieldset>
             <fieldset class="border border-info p-3 mt-2 rounded">
@@ -64,9 +64,9 @@
                     <select class="form-control" id="inputCarType" name="inputCarType">
                         <option class="font-italic" value=" ">Choose one...</option>
                         <option value="Economy">Economy ($29.99/day)</option>
-                        <option value="Compact">Compact ($34.99/day</option>
-                        <option value="Intermediate">Intermediate ($39.99/day)</option>
-                        <option value="FullSize">Full Size ($44.99)</option>
+                        <option value="Compact">Compact ($39.99/day</option>
+                        <option value="Intermediate">Intermediate ($49.99/day)</option>
+                        <option value="FullSize">Full Size ($59.99/day)</option>
                     </select>
                 </div>
             </fieldset>
@@ -84,36 +84,36 @@
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="selectRoadside" name="selectRoadside">
-                    <label class="form-check-label" for="selectRoadside">Roadside Assitance ($2.95/day)</label>
+                    <label class="form-check-label" for="selectRoadside">Roadside Assistance ($2.95/day)</label>
                 </div>
             </fieldset>
             <fieldset class="border border-info p-3 mt-2 rounded">
                 <legend class="font-weight-light text-white w-50 border border-info rounded">Under 25?
                 </legend>
                 <p>Are you under the age of 25?</p>
+                <p class="font-italic">A 30% surcharge will be applied for drivers under the age of 25.</p>
+                <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="age" id="under25" value="under25">
+                        <label class="form-check-label" for="under25">Yes</label>
+                    </div>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="age" id="notUnder25" value="notUnder25" checked>
                     <label class="form-check-label" for="notUnder25">No</label>
                 </div>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="age" id="under25" value="under25">
-                    <label class="form-check-label" for="under25">Yes</label>
-                </div>
             </fieldset>
-            <div>
+            <div class="align-content-center">
                 <input class="btn btn-info my-3" type="button" id="calcBtn" name="calcBtn" value="Estimate Total Cost">
                 <input class="btn btn-info my-3" type="reset" id="resetBtn" name="resetBtn" value="Reset">
             </div>
         </form>
-        <fieldset id="hiddendiv" class="border border-info p-3 rounded col-md-4">
+        <fieldset id="hiddendiv" class="container border border-info p-3 rounded col-xs-8 col-lg-3 mx-auto">
             <legend class="font-weight-light text-white w-75 border border-info rounded">Cost Breakdown</legend>
             <div>
                 <p class="text-info font-weight-bold">Car Rental: $ <span class="text-dark font-weight-normal"
                         id="carRentalCostOutput"></span></p>
                 <p class="text-info font-weight-bold">Options: $ <span class="text-dark font-weight-normal"
                         id="optionCostOutput"></span></p>
-                <p class="text-info font-weight-bold">Under 25 Surcharge: $ <span class="text-dark font-weight-normal"
+                <p class="text-info font-weight-bold">Age Surcharge: $ <span class="text-dark font-weight-normal"
                         id="under25CostOutput"></span></p>
                 <p class="text-info font-weight-bold">Return Date: <span class="text-dark font-weight-normal"
                         id="returnDateOutput"></span></p>
@@ -124,8 +124,8 @@
     </main>
     <!-- FOOTER -->
     <footer class="row footer border-top border-info">
-        <div class="container col-md-12">
-            <p class="float-right mr-4">Cori Trudeau - HartCode Academy 2019 <br>
+        <div class="container col-12 text-center">
+            <p>Cori Trudeau - HartCode Academy 2019 <br>
                 <span class="font-weight-light mt-1">Disclaimer: This is a fictional company and site for educational
                     purposes only.</span></p>
         </div>

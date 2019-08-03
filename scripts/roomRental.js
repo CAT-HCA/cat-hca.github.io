@@ -26,6 +26,7 @@ window.onload = function ()
     let seniorDiscField = document.getElementById("seniorDisc");
     let militaryDiscField = document.getElementById("militaryDisc");
     let hiddendiv = document.getElementById("hiddendiv");
+    let hiddenP = document.getElementById("hiddenP");
     let calcBtn = document.getElementById("calcBtn");
 
     /*
@@ -41,10 +42,9 @@ window.onload = function ()
         let totalGuests = numChild + numAdults;
         let taxPercent = .12;
 
-        hiddendiv.style.display = 'block';
-
         //Process Data and call other functions
         let customerCount = canRoomHoldCustomer(roomTypeField.options[roomTypeField.selectedIndex].value, totalGuests);
+        //will alert if the number of guests exceeds the max occupancy of room type
         if (customerCount == false)
         {
             alert("Your guest count is too big for your selected room.");
@@ -61,19 +61,27 @@ window.onload = function ()
       
 
         //Display results
+        //will show the results portion only if a price is calculated (not on click, in case of alert)
+        if (roomCost > 0){
+                hiddendiv.style.display = "initial";
+            }
+            else{
+                hiddendiv.style.display = "none";
+            }
         document.getElementById("checkinDateOutput").innerHTML = checkInDateCalc;
         document.getElementById("checkoutDateOutput").innerHTML = checkOutDate;
         document.getElementById("roomAndBfastCostOutput").innerHTML = roomCost.toFixed(2);
+        document.getElementById("taxOutput").innerHTML = taxAmount.toFixed(2);
+        document.getElementById("totalCostOutput").innerHTML = totalCost.toFixed(2);
+
+        //will show the discounts portion only if a price is calculated (not on click, in case of alert)
         if (discountAmount > 0){
             document.getElementById("discountSavingsOutput").innerHTML = discountAmount.toFixed(2);
         }
         else
         {
-            discountAmount = "";
-            document.getElementById("discountSavingsOutput").innerHTML = discountAmount;
+            hiddenP.style.display = "none";
         }
-        document.getElementById("taxOutput").innerHTML = taxAmount.toFixed(2);
-        document.getElementById("totalCostOutput").innerHTML = totalCost.toFixed(2);
 
     }
 }
