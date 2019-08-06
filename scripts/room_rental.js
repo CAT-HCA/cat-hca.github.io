@@ -3,17 +3,36 @@
 //Author: Corinne Trudeau
 "use strict";
 
+
+/*
+* This function will pull the proper object out of the array to refer to
+* @param roomType (string) - roomType selected by user on drop down
+* @return result (object) - selected object from array
+*/
+function getRoomInfo(roomType)
+{
+    let priceList = 
+    [
+        {name:"queen", guests: 5, lowSeasonRate: 150, highSeasonRate: 250},
+        {name:"king", guests: 2, lowSeasonRate: 150, highSeasonRate: 250},
+        {name:"kingSuite", guests: 4, lowSeasonRate: 190, highSeasonRate: 310},
+        {name:"twoBedSuite", guests: 6, lowSeasonRate: 210, highSeasonRate: 350}
+    ];
+
+   let obj;
+   for (let i = 0; i < priceList.length; i++)
+   {
+      if (priceList[i].name == roomType)
+      {
+         obj = priceList[i];
+         break;
+      }
+   }
+   return obj;
+}
 /*
 *This is the window.onload event handler
 */
-let roomPrices = 
-[
-    {name:"queen", guests: 5, lowSeasonRate: 150, highSeasonRate: 250},
-    {name:"king", guests: 2, lowSeasonRate: 150, highSeasonRate: 250},
-    {name:"kingSuite", guests: 4, lowSeasonRate: 190, highSeasonRate: 310},
-    {name:"twoBedSuite", guests: 6, lowSeasonRate: 210, highSeasonRate: 350}
-]
-
 window.onload = function ()
 {
     let checkInDateField = document.getElementById("inputCheckinDate");
@@ -26,7 +45,6 @@ window.onload = function ()
     let seniorDiscField = document.getElementById("seniorDisc");
     let militaryDiscField = document.getElementById("militaryDisc");
     let hiddendiv = document.getElementById("hiddendiv");
-    let hiddenP = document.getElementById("hiddenP");
     let calcBtn = document.getElementById("calcBtn");
 
     /*
@@ -35,6 +53,7 @@ window.onload = function ()
    calcBtn.onclick = function ()
     {
         //Get Data from UI
+        let roomType = roomTypeField.options[roomTypeField.selectedIndex].value;
         let checkInDate = new Date(checkInDateField.value);
         let numNights = Number(numNightsField.value);
         let numAdults = Number(adultCountField.value);
@@ -42,9 +61,11 @@ window.onload = function ()
         let totalGuests = numChild + numAdults;
         let taxPercent = .12;
 
+        hiddendiv.style.display = 'block';
+
         //Process Data and call other functions
-        let customerCount = canRoomHoldCustomer(roomTypeField.options[roomTypeField.selectedIndex].value, totalGuests);
-        //will alert if the number of guests exceeds the max occupancy of room type
+        let roomInfo = getRoomInfo(roomType);
+        let customerCount = canRoomHoldCustomer(roomInfo, totalGuests);
         if (customerCount == false)
         {
             alert("Your guest count is too big for your selected room.");
@@ -53,7 +74,7 @@ window.onload = function ()
         let checkInDateCalc = getCheckInDate(checkInDate);
         let checkOutDate = getCheckOutDate(checkInDate, numNights);
         let breakfastCost = getBreakfastCost(numNights, numAdults, numChild, breakfastField.checked, seniorDiscField.checked);
-        let roomCost = getRoomCost(roomTypeField.options[roomTypeField.selectedIndex].value, checkInDate, numNights);
+        let roomCost = getRoomCost(roomInfo, checkInDate, numNights);
         let discountAmount = getDiscount(roomCost, aaaDiscField.checked, seniorDiscField.checked, militaryDiscField.checked);
         let roomSubtotal = roomCost + breakfastCost;
         let taxAmount = roomSubtotal * (taxPercent);
@@ -61,30 +82,24 @@ window.onload = function ()
       
 
         //Display results
-        //will show the results portion only if a price is calculated (not on click, in case of alert)
-        if (roomCost > 0){
-                hiddendiv.style.display = "initial";
-            }
-            else{
-                hiddendiv.style.display = "none";
-            }
         document.getElementById("checkinDateOutput").innerHTML = checkInDateCalc;
         document.getElementById("checkoutDateOutput").innerHTML = checkOutDate;
-        document.getElementById("roomAndBfastCostOutput").innerHTML = roomCost.toFixed(2);
-        document.getElementById("taxOutput").innerHTML = taxAmount.toFixed(2);
-        document.getElementById("totalCostOutput").innerHTML = totalCost.toFixed(2);
-
-        //will show the discounts portion only if a price is calculated (not on click, in case of alert)
+        document.getElementById("roomAndBfastCostOutput").innerHTML = roomSubtotal.toFixed(2);
         if (discountAmount > 0){
             document.getElementById("discountSavingsOutput").innerHTML = discountAmount.toFixed(2);
         }
         else
         {
-            hiddenP.style.display = "none";
+            discountAmount = "";
+            document.getElementById("discountSavingsOutput").innerHTML = discountAmount;
         }
+        document.getElementById("taxOutput").innerHTML = taxAmount.toFixed(2);
+        document.getElementById("totalCostOutput").innerHTML = totalCost.toFixed(2);
 
     }
 }
+
+
 
 
 /*
@@ -94,19 +109,13 @@ window.onload = function ()
 * @param numGuests (number) - number of guests
 * @return result (boolean) - true or false that the guests will fit in the room
 */
-function canRoomHoldCustomer(roomType, numGuests)
+function canRoomHoldCustomer(roomInfo, numGuests)
 {
     let result = false;
-    for (let i = 0; i < roomPrices.length; i++)
+    
+    if (roomInfo.guests >= numGuests)
     {
-        if (roomPrices[i].name == roomType)
-        {
-            if (roomPrices[i].guests >= numGuests)
-            {
-                result = true;
-                break;
-            }
-        }
+        result = true;
     }
     return result;
 }
@@ -119,18 +128,9 @@ function canRoomHoldCustomer(roomType, numGuests)
 * @param numNights (number) - number of nights of stay
 * @return roomCost (number) - cost of room
 */
-function getRoomCost(roomType, checkinDate, numNights)
+function getRoomCost(roomInfo, checkinDate, numNights)
 {
-    let roomCost;
-    for (let i = 0; i < roomPrices.length; i++)
-    {
-        if (roomPrices[i].name == roomType)
-        {
-            var roomCharge = roomPrices[i].lowSeasonRate;
-            break
-        }
-    }
-    roomCost = roomCharge * numNights;
+    let roomCost = roomInfo.lowSeasonRate * numNights;
     return roomCost;
 }
 
