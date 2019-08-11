@@ -43,7 +43,7 @@ window.onload = function() {
 
 			//time Conversion API url
 			let codeLookupURL =
-				'http://api.timezonedb.com/v2.1/get-time-zone?key=Z5NMTI9BSFUC&format=json&by=position&lat=' +
+				'https://api.timezonedb.com/v2.1/get-time-zone?key=Z5NMTI9BSFUC&format=json&by=position&lat=' +
 				mtnLat +
 				'&lng=' +
 				mtnLong;
