@@ -231,7 +231,7 @@ function insertRowInTable(parkTableOutput, tableBody, parkName, city, state, lat
 		let urlField = document.createElement('a');
 		urlField.href = url;
 		urlField.innerHTML = url;
-		urlField.target = '_blank';
+		urlField.target = "rptTab";
 		cell4.appendChild(urlField);
 	} else {
 		cell4.innerHTML = '&nbsp;';
