@@ -1,0 +1,62 @@
+/*jumbotron*/
+.jumbotron {
+	margin-bottom: 0px;
+	background-image: url(../images/jtronimg2.jpg);
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 300px;
+}
+#btnDiv {
+	margin-top: 150px;
+}
+
+/* formatting for footer*/
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin-bottom: 200px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.hidden {
+	display: none;
+}
+
+.questrial{
+	font-family:"Questrial", sans-serif;
+}
+
+.allura{
+	font-family: 'Allura', cursive;
+}
+
+#navBarBtn{
+	color:#393836;
+	font-family:"Questrial", sans-serif;
+}
+
+#navBarBrandLink{
+	color:#393836;
+	font-family: 'Allura', cursive;
+	font-size: 40px;
+}
+#navBarBrandLink:hover {
+	color:#393836;
+	font-family: 'Allura', cursive;
+	font-size: 40px;
+	text-decoration: none;
+}
+
+#servicesHeader{
+	font-size: 1.2em;
+}
+

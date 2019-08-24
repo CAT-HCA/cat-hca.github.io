@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- linking custom bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="css/custom_bootstrap.css">
+    <!-- googlefonts -->
+    <link href="https://fonts.googleapis.com/css?family=Allura%7CQuestrial&display=swap" rel="stylesheet">
+    <!-- linking custom site CSS -->
+    <link rel="stylesheet" type="text/css" href="css/site.css">
+    <!--Title and favicon in tab-->
+    <link rel="icon" href="images/robicon.png" type="image/x-icon" />
+    <title>Relaxing SPA</title>
+</head>
+
+<body class="w-100 bg-light">
+    <!--START NAV BAR-->
+    <nav class="navbar navbar-dark navbar-expand-md p-1 px-md-4 border-bottom shadow-sm bg-success">
+        <span class="navbar-brand mb-0 h1">
+            <a id="navBarBrandLink" class="navHome" href="index.html">Relaxing SPA</a></span>
+        <button class="navbar-toggler btn-white" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse float-right flex-row-reverse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a id="navBarBtn" class="nav-item nav-link p-2 mr-2 inactive" href="index.html">Home</a></div>
+        </div>
+    </nav>
+    <!--END NAV BAR-->
+    <!-- jumbotron -->
+    <div class="jumbotron jumbotron-fluid text-center my-auto" id="jtron">
+        <div class="container" id="btnDiv">
+            <div class="justify-content-center">
+                <!--HTML Validation error for "x-placement" attribute... due to bootstrap class-->
+                <button type="button" id="jtronBtn" class="btn btn-info btn-lg questrial">Plan your day of
+                    relaxation</button>
+            </div>
+        </div>
+    </div>
+    <section id="homepageCards">
+        <h2 class="text-center allura text-dark mt-3 display-4">Popular Services Offered</h2>
+        <div class="row mt-2 mx-2">
+            <div class="card mx-auto col-xs-10 col-lg-3 bg-primary mt-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title mb-2 text-muted">Thai massage</h5>
+                    <p class="card-text text-white">Traditional Thai massage uses no oils or lotions. The recipient
+                        remains clothed during a treatment. There is constant body contact between the giver and
+                        receiver, but rather than rubbing on muscles, the body is compressed, pulled, stretched and
+                        rocked.
+                    </p>
+                </div>
+            </div>
+            <div class="card mx-auto col-xs-10 col-xl-3 bg-primary mt-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title  mb-2 text-muted">Mud wrap</h5>
+                    <p class="card-text text-white">The mud causes sweating, and proponents claim that mud baths can
+                        slim and tone the body, hydrate or firm the skin, or relax and soothe the muscles. It is alleged
+                        that some mud baths are able to relieve tired and aching joints, ease inflammation, or help to
+                        "flush out toxins" through sweating.</p>
+                </div>
+            </div>
+            <div class="card mx-auto col-xs-10 col-lg-3 bg-primary mt-4" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title  mb-2 text-muted">Massage for Mom-to-Be</h5>
+                    <p class="card-text text-white">The mother's body must be properly positioned and supported during
+                        the massage, using pillows and padding. Proper positioning ensures comfort and safety for the
+                        mother and baby. Some massage techniques, such as deep tissue work, cannot be used during
+                        pregnancy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end of jumbotron -->
+    <!-- MAIN CONTENT -->
+    <main class="mt-3 container">
+        <header class="mt-3 mx-auto text-center row">
+            <h1 id="servicesHeader" class="text-dark text-center questrial hidden container">View our spa services below
+                and book
+                your appointment for the ultimate relaxation!</h1>
+        </header>
+        <aside class="row">
+            <div class="col-6 container">
+                <button class="btn btn-lg btn-info dropdown-toggle hidden mt-3 mx-auto w-75" type="button"
+                    id="viewCategories" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">View
+                    Categories</button>
+                <div id="categoryContainer" class="hidden mx-auto justify-content-center w-75">
+                    <div id="categoryList" class="dropdown-menu mx-auto">
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <section class="row container hidden mt-3" id="servicesContainer">
+            <div class="container">
+                <h2 class="allura display-4 text-center" id="categoryName">...</h2>
+                <div id="servicesList" class="container mx-auto col-7">
+                    <div class="accordion" id="accordion">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- END OF MAIN CONTENT -->
+    <!-- FOOTER -->
+    <footer class=" w-100 footer border-top bg-success">
+        <div class="col-12 text-center">
+            <div class="mx-auto mt-3">
+                <audio controls autoplay id="audioId">
+                    <source src="audio/audio.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio></div>
+            <p class="mt-2">Cori Trudeau - HartCode Academy 2019 <br>
+                <span class="font-weight-light">Disclaimer: This is a fictional website and Company</span></p>
+        </div>
+    </footer>
+    <!--END FOOTER-->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="scripts/spa.js"></script>
+</body>
+
+</html>
